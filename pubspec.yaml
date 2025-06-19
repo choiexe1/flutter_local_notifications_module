@@ -1,0 +1,13 @@
+name: local_push_notifications
+description: Local Push Notifications module
+version: 0.0.1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: ^19.2.1
+  get_it: ^8.0.3
+  timezone: ^0.10.1
