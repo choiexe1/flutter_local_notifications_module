@@ -1,5 +1,6 @@
-name: local_push_notifications
+name: local_push_notifications_module
 description: Local Push Notifications module
+publish_to: "none"
 version: 0.0.1
 
 environment:
