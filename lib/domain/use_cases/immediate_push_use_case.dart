@@ -1,4 +1,4 @@
-import '../repositories/local_push_repository.dart';
+import 'package:local_push_notifications_module/domain/repositories/local_push_repository.dart';
 
 class ImmediatePushUseCase {
   const ImmediatePushUseCase(this._localPushRepository);
@@ -10,6 +10,6 @@ class ImmediatePushUseCase {
     required String title,
     required String body,
   }) async {
-    await _localPushRepository.immediatePush(id: id, title: title, body: body);
+    await _localPushRepository.immediatePush(id: id, body: body, title: title);
   }
 }
