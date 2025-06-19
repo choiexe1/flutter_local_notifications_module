@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:local_push_notifications_module/domain/configs/local_push_config.dart';
+import 'package:local_push_notifications_module/domain/repositories/local_push_repository.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-
-import '../../domain/configs/local_push_config.dart';
-import '../../domain/repositories/local_push_repository.dart';
 
 class FlutterLocalPushNotificationRepository implements LocalPushRepository {
   FlutterLocalPushNotificationRepository(this._plugin, this._config) {
@@ -19,13 +18,9 @@ class FlutterLocalPushNotificationRepository implements LocalPushRepository {
     tz.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation(_config.timeZone));
 
-    final androidSettings = AndroidInitializationSettings(
-      _config.icon,
-    );
+    final androidSettings = AndroidInitializationSettings(_config.icon);
 
-    final initializeSetting = InitializationSettings(
-      android: androidSettings,
-    );
+    final initializeSetting = InitializationSettings(android: androidSettings);
 
     await _plugin.initialize(initializeSetting);
   }

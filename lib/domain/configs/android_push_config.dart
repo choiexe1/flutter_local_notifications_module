@@ -1,4 +1,4 @@
-import 'local_push_config.dart';
+import 'package:local_push_notifications_module/domain/configs/local_push_config.dart';
 
 class AndroidPushConfig implements LocalPushConfig {
   AndroidPushConfig({
