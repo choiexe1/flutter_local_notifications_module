@@ -15,6 +15,7 @@ abstract interface class LocalPushRepository {
   Future<void> scheduledPush({
     required String title,
     required String body,
+    required DateTime dateTime,
     required int id,
   });
 

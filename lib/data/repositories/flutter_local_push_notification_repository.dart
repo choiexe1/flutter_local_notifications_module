@@ -69,8 +69,25 @@ class FlutterLocalPushNotificationRepository implements LocalPushRepository {
   Future<void> scheduledPush({
     required String title,
     required String body,
+    required DateTime dateTime,
     required int id,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    final scheduledDate = tz.TZDateTime(
+      tz.local,
+      dateTime.year,
+      dateTime.month,
+      dateTime.day,
+      dateTime.hour,
+      dateTime.minute,
+    );
+
+    await _plugin.zonedSchedule(
+      id,
+      title,
+      body,
+      scheduledDate,
+      _notificationDetails(),
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+    );
   }
 }
